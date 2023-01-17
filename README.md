@@ -1,7 +1,6 @@
 ﻿# tennis-app
- 
-pip install -t requirements.txt
-python manage.py createsuperuser
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
+pip install -t requirements.txt<br>
+python manage.py createsuperuser<br>
+python manage.py makemigrations<br>
+python manage.py migrate<br>
+python manage.py runserver<br>
