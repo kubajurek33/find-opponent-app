@@ -1,10 +1,5 @@
 {% extends 'base.html' %} {% block title %}Edytuj profil{% endblock %}
 {% load crispy_forms_tags %} {% block content %}
-<style>
-        body{
-            font-family: acre;
-        }
-</style>
 <form method="post">
 {% csrf_token %}
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
@@ -12,7 +7,6 @@
     </svg>
     <a href="/home">Strona główna</a>
     <br><br>
-
     {{ form.email|as_crispy_field }}
     {{ form.first_name|as_crispy_field }}
     {{ form.last_name|as_crispy_field }}
