@@ -82,19 +82,6 @@ class DjangoSession(models.Model):
         managed = False
         db_table = 'django_session'
 
-
-class Event(models.Model):
-    id = models.AutoField(primary_key=True)
-    user = models.ForeignKey('UsersCustomuser', models.DO_NOTHING, db_column='user', blank=True, null=True)
-    description = models.CharField(max_length=300, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
-    date_of_creation = models.DateField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'event'
-
-
 class UsersCustomuser(models.Model):
     id = models.BigAutoField(primary_key=True)
     password = models.CharField(max_length=128)
@@ -134,3 +121,14 @@ class UsersCustomuserUserPermissions(models.Model):
         managed = False
         db_table = 'users_customuser_user_permissions'
         unique_together = (('customuser', 'permission'),)
+
+class Event(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(UsersCustomuser, models.DO_NOTHING, db_column='user', blank=True, null=True)
+    description = models.CharField(max_length=300, blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
+    date_of_creation = models.DateField(blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'event'
